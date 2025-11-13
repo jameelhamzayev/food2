@@ -6,14 +6,40 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Store, Recycle, ArrowRight, Package, Handshake, Save, Upload } from 'lucide-react';
+import { Store, Recycle, ArrowRight, Package, Handshake, Save, Upload, ImageIcon, X } from 'lucide-react';
 import { BaseCrudService } from '@/integrations';
 import { MarketplaceListings, Recyclers } from '@/entities';
+import { Image } from '@/components/ui/image';
 
 export default function ListWastePage() {
   const [selectedType, setSelectedType] = useState<'seller' | 'recycler' | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
+
+  // Helper function to handle file upload
+  const handleFileUpload = (file: File, type: 'seller' | 'recycler') => {
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const result = e.target?.result as string;
+        if (type === 'seller') {
+          setSellerForm({...sellerForm, listingImage: result});
+        } else {
+          setRecyclerForm({...recyclerForm, logo: result});
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  // Helper function to remove uploaded photo
+  const removePhoto = (type: 'seller' | 'recycler') => {
+    if (type === 'seller') {
+      setSellerForm({...sellerForm, listingImage: ''});
+    } else {
+      setRecyclerForm({...recyclerForm, logo: ''});
+    }
+  };
 
   // Seller form state
   const [sellerForm, setSellerForm] = useState({
@@ -24,7 +50,8 @@ export default function ListWastePage() {
     unitOfMeasure: '',
     pricePerUnit: '',
     location: '',
-    availableUntil: ''
+    availableUntil: '',
+    listingImage: ''
   });
 
   // Recycler form state
@@ -34,7 +61,8 @@ export default function ListWastePage() {
     location: '',
     websiteUrl: '',
     wasteTypesAccepted: '',
-    productsInReturn: ''
+    productsInReturn: '',
+    logo: ''
   });
 
   const handleSellerSubmit = async (e: React.FormEvent) => {
@@ -52,7 +80,7 @@ export default function ListWastePage() {
         pricePerUnit: parseFloat(sellerForm.pricePerUnit),
         location: sellerForm.location,
         availableUntil: sellerForm.availableUntil ? new Date(sellerForm.availableUntil) : undefined,
-        listingImage: 'https://static.wixstatic.com/media/fdedf3_80090392b0aa4f50a42dcea3ebae69a9~mv2.png?originWidth=768&originHeight=576'
+        listingImage: sellerForm.listingImage || 'https://static.wixstatic.com/media/fdedf3_80090392b0aa4f50a42dcea3ebae69a9~mv2.png?originWidth=768&originHeight=576'
       };
 
       await BaseCrudService.create('marketplacelistings', listingData);
@@ -77,7 +105,7 @@ export default function ListWastePage() {
         websiteUrl: recyclerForm.websiteUrl,
         wasteTypesAccepted: recyclerForm.wasteTypesAccepted,
         productsInReturn: recyclerForm.productsInReturn,
-        logo: 'https://static.wixstatic.com/media/fdedf3_b294de5dca764a4aa7b337293e637bbe~mv2.png?originWidth=768&originHeight=576'
+        logo: recyclerForm.logo || 'https://static.wixstatic.com/media/fdedf3_b294de5dca764a4aa7b337293e637bbe~mv2.png?originWidth=768&originHeight=576'
       };
 
       await BaseCrudService.create('recyclers', recyclerData);
@@ -245,6 +273,52 @@ export default function ListWastePage() {
                   />
                 </div>
 
+                {/* Photo Upload Section */}
+                <div>
+                  <Label className="font-paragraph text-sm text-primary">
+                    Listing Photo (Optional)
+                  </Label>
+                  <div className="mt-2">
+                    {sellerForm.listingImage ? (
+                      <div className="relative inline-block">
+                        <Image src={sellerForm.listingImage} alt="Listing preview" className="w-32 h-32 object-cover rounded border border-primary/20" />
+                        <button
+                          type="button"
+                          onClick={() => removePhoto('seller')}
+                          className="absolute -top-2 -right-2 bg-destructive text-destructiveforeground rounded-full p-1 hover:bg-destructive/90"
+                        >
+                          <X className="h-4 w-4" />
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="border-2 border-dashed border-primary/20 rounded p-6 text-center hover:border-primary/40 transition-colors">
+                        <input
+                          type="file"
+                          id="listingPhoto"
+                          accept="image/*"
+                          onChange={(e) => {
+                            const file = e.target.files?.[0];
+                            if (file) handleFileUpload(file, 'seller');
+                          }}
+                          className="hidden"
+                        />
+                        <label 
+                          htmlFor="listingPhoto" 
+                          className="cursor-pointer flex flex-col items-center space-y-2"
+                        >
+                          <ImageIcon className="h-8 w-8 text-primary/60" />
+                          <span className="font-paragraph text-sm text-primary/60">
+                            Click to upload a photo of your listing
+                          </span>
+                          <span className="font-paragraph text-xs text-primary/40">
+                            JPG, PNG up to 10MB
+                          </span>
+                        </label>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
                 <div className="flex flex-col sm:flex-row gap-4 pt-6">
                   <Button 
                     type="submit" 
@@ -391,6 +465,52 @@ export default function ListWastePage() {
                     rows={3}
                     className="border-primary/20 focus:border-primary rounded-none"
                   />
+                </div>
+
+                {/* Company Logo Upload Section */}
+                <div>
+                  <Label className="font-paragraph text-sm text-primary">
+                    Company Logo (Optional)
+                  </Label>
+                  <div className="mt-2">
+                    {recyclerForm.logo ? (
+                      <div className="relative inline-block">
+                        <Image src={recyclerForm.logo} alt="Company logo preview" className="w-32 h-32 object-cover rounded border border-primary/20" />
+                        <button
+                          type="button"
+                          onClick={() => removePhoto('recycler')}
+                          className="absolute -top-2 -right-2 bg-destructive text-destructiveforeground rounded-full p-1 hover:bg-destructive/90"
+                        >
+                          <X className="h-4 w-4" />
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="border-2 border-dashed border-primary/20 rounded p-6 text-center hover:border-primary/40 transition-colors">
+                        <input
+                          type="file"
+                          id="companyLogo"
+                          accept="image/*"
+                          onChange={(e) => {
+                            const file = e.target.files?.[0];
+                            if (file) handleFileUpload(file, 'recycler');
+                          }}
+                          className="hidden"
+                        />
+                        <label 
+                          htmlFor="companyLogo" 
+                          className="cursor-pointer flex flex-col items-center space-y-2"
+                        >
+                          <ImageIcon className="h-8 w-8 text-primary/60" />
+                          <span className="font-paragraph text-sm text-primary/60">
+                            Click to upload your company logo
+                          </span>
+                          <span className="font-paragraph text-xs text-primary/40">
+                            JPG, PNG up to 10MB
+                          </span>
+                        </label>
+                      </div>
+                    )}
+                  </div>
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 pt-6">
