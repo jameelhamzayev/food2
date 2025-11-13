@@ -80,7 +80,7 @@ export default function MarketplacePage() {
               </p>
             </div>
             <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-none">
-              <Link to="/marketplace/submit">
+              <Link to="/list-waste">
                 <Plus className="mr-2 h-5 w-5" />
                 List Your Waste
               </Link>
@@ -151,7 +151,7 @@ export default function MarketplacePage() {
                 Try adjusting your search criteria or check back later for new listings.
               </p>
               <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none">
-                <Link to="/marketplace/submit">
+                <Link to="/list-waste">
                   Create First Listing
                 </Link>
               </Button>

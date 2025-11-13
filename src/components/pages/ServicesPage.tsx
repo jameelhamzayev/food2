@@ -289,6 +289,17 @@ export default function ServicesPage() {
                             </span>
                           </div>
                         )}
+
+                        {recycler.productsInReturn && (
+                          <div>
+                            <span className="font-paragraph text-xs text-primary/60 block mb-1">
+                              Products in Return:
+                            </span>
+                            <span className="font-paragraph text-sm text-primary">
+                              {recycler.productsInReturn}
+                            </span>
+                          </div>
+                        )}
                         
                         <div className="flex gap-2">
                           <Button asChild className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90 rounded-none">

@@ -106,6 +106,56 @@ export interface MarketplaceListings {
 
 
 /**
+ * Collection ID: marketplaceorders
+ * Interface for MarketplaceOrders
+ */
+export interface MarketplaceOrders {
+  _id: string;
+  _createdDate?: Date;
+  _updatedDate?: Date;
+  /** @wixFieldType text */
+  orderNumber?: string;
+  /** @wixFieldType text */
+  buyerId?: string;
+  /** @wixFieldType text */
+  listingId?: string;
+  /** @wixFieldType number */
+  quantity?: number;
+  /** @wixFieldType number */
+  totalPrice?: number;
+  /** @wixFieldType datetime */
+  transactionDate?: Date | string;
+  /** @wixFieldType text */
+  orderStatus?: string;
+}
+
+
+/**
+ * Collection ID: recyclerorders
+ * Interface for RecyclerOrders
+ */
+export interface RecyclerOrders {
+  _id: string;
+  _createdDate?: Date;
+  _updatedDate?: Date;
+  /** @wixFieldType text */
+  initiatingUserDisplayName?: string;
+  /** @wixFieldType text */
+  recyclerDisplayName?: string;
+  /** @wixFieldType text */
+  transactionType?: string;
+  /** @wixFieldType datetime */
+  transactionDate?: Date | string;
+  /** @wixFieldType text */
+  status?: string;
+  /** @wixFieldType number */
+  amount?: number;
+  /** @wixFieldType text */
+  transactionDetails?: string;
+}
+
+
+/**
  * Collection ID: recyclers
  * Interface for Recyclers
  */
@@ -125,6 +175,8 @@ export interface Recyclers {
   websiteUrl?: string;
   /** @wixFieldType text */
   wasteTypesAccepted?: string;
+  /** @wixFieldType text */
+  productsInReturn?: string;
 }
 
 
@@ -150,4 +202,6 @@ export interface SustainabilityServices {
   serviceImage?: string;
   /** @wixFieldType url */
   contactUrl?: string;
+  /** @wixFieldType text */
+  recyclerId?: string;
 }

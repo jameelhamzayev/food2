@@ -47,37 +47,8 @@ export default function HomePage() {
     <div className="min-h-screen">
       {/* Hero Section - Full Bleed with Inspiration Layout */}
       <section className="w-full max-w-[120rem] mx-auto min-h-screen relative overflow-hidden bg-gradient-to-br from-backgroundlight via-background to-backgrounddark">
-        {/* Navigation */}
-        <nav className="absolute top-0 left-0 right-0 z-50 p-6">
-          <div className="max-w-[100rem] mx-auto flex justify-between items-center">
-            <Link to="/" className="font-heading text-2xl font-bold text-primary uppercase tracking-wide">
-              Food2
-            </Link>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link to="/marketplace" className="font-paragraph text-sm text-primary hover:text-secondary transition-colors">
-                Marketplace
-              </Link>
-              <Link to="/services" className="font-paragraph text-sm text-primary hover:text-secondary transition-colors">
-                Services
-              </Link>
-              <Link to="/impact" className="font-paragraph text-sm text-primary hover:text-secondary transition-colors">
-                Impact
-              </Link>
-              <Link to="/about" className="font-paragraph text-sm text-primary hover:text-secondary transition-colors">
-                About
-              </Link>
-              <Link to="/blog" className="font-paragraph text-sm text-primary hover:text-secondary transition-colors">
-                Blog
-              </Link>
-              <Link to="/contact" className="font-paragraph text-sm text-primary hover:text-secondary transition-colors">
-                Contact
-              </Link>
-            </div>
-          </div>
-        </nav>
-
         {/* Hero Content - Asymmetrical Layout Inspired by Image */}
-        <div className="relative z-10 pt-32 pb-20 px-6">
+        <div className="relative z-10 pt-20 pb-20 px-6">
           <div className="max-w-[100rem] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[70vh]">
             {/* Left Side - Bold Typography (Inspired Layout) */}
             <div className="lg:col-span-7 space-y-8">
@@ -100,7 +71,7 @@ export default function HomePage() {
                   size="lg" 
                   className="bg-primary text-primary-foreground hover:bg-primary/90 font-paragraph text-base px-8 py-4 rounded-none"
                 >
-                  <Link to="/marketplace/submit">
+                  <Link to="/list-waste">
                     List Your Waste <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
