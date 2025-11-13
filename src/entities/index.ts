@@ -165,6 +165,8 @@ export interface Recyclers {
   _updatedDate?: Date;
   /** @wixFieldType text */
   recyclerName?: string;
+  /** @wixFieldType text */
+  productsInReturn?: string;
   /** @wixFieldType image */
   logo?: string;
   /** @wixFieldType text */
@@ -175,8 +177,6 @@ export interface Recyclers {
   websiteUrl?: string;
   /** @wixFieldType text */
   wasteTypesAccepted?: string;
-  /** @wixFieldType text */
-  productsInReturn?: string;
 }
 
 
@@ -188,6 +188,8 @@ export interface SustainabilityServices {
   _id: string;
   _createdDate?: Date;
   _updatedDate?: Date;
+  /** @wixFieldType text */
+  recyclerId?: string;
   /** @wixFieldType text */
   serviceName?: string;
   /** @wixFieldType text */
@@ -202,6 +204,4 @@ export interface SustainabilityServices {
   serviceImage?: string;
   /** @wixFieldType url */
   contactUrl?: string;
-  /** @wixFieldType text */
-  recyclerId?: string;
 }
