@@ -94,7 +94,7 @@ export default function MarketplacePage() {
         <div className="max-w-[100rem] mx-auto px-6">
           <div className="flex flex-col md:flex-row gap-4 items-center">
             <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-primary/60" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-primary" />
               <Input
                 placeholder="Search listings..."
                 value={searchTerm}
@@ -147,7 +147,7 @@ export default function MarketplacePage() {
             <div className="text-center py-16">
               <div className="text-6xl mb-4">🔍</div>
               <h3 className="font-heading text-2xl font-bold text-primary mb-2">No listings found</h3>
-              <p className="font-paragraph text-primary/70 mb-6">
+              <p className="font-paragraph text-primary mb-6">
                 Try adjusting your search criteria or check back later for new listings.
               </p>
               <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none">
@@ -179,26 +179,26 @@ export default function MarketplacePage() {
                         </span>
                       </div>
                       
-                      <p className="font-paragraph text-sm text-primary/70 mb-4 line-clamp-3">
+                      <p className="font-paragraph text-sm text-primary mb-4 line-clamp-3">
                         {listing.description}
                       </p>
                       
                       <div className="space-y-2 mb-4">
                         <div className="flex justify-between items-center text-sm font-paragraph">
-                          <span className="text-primary/60">Type:</span>
+                          <span className="text-primary">Type:</span>
                           <span className="text-primary font-medium">{listing.wasteType}</span>
                         </div>
                         <div className="flex justify-between items-center text-sm font-paragraph">
-                          <span className="text-primary/60">Quantity:</span>
+                          <span className="text-primary">Quantity:</span>
                           <span className="text-primary font-medium">{listing.quantity} {listing.unitOfMeasure}</span>
                         </div>
                         <div className="flex justify-between items-center text-sm font-paragraph">
-                          <span className="text-primary/60">Location:</span>
+                          <span className="text-primary">Location:</span>
                           <span className="text-primary font-medium">{listing.location}</span>
                         </div>
                         {listing.availableUntil && (
                           <div className="flex justify-between items-center text-sm font-paragraph">
-                            <span className="text-primary/60">Available until:</span>
+                            <span className="text-primary">Available until:</span>
                             <span className="text-primary font-medium">
                               {new Date(listing.availableUntil).toLocaleDateString()}
                             </span>

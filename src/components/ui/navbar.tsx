@@ -27,7 +27,7 @@ export function Navbar() {
       <div className="max-w-[100rem] mx-auto px-6">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="font-heading text-2xl font-black text-primary uppercase tracking-wide hover:text-primary/80 transition-colors">
+          <Link to="/" className="font-heading text-2xl font-black text-primary uppercase tracking-wide hover:text-primary transition-colors">
             Food2
           </Link>
 
@@ -42,7 +42,7 @@ export function Navbar() {
                   className={`flex items-center space-x-2 font-paragraph text-sm transition-colors ${
                     isActive(item.href)
                       ? 'text-primary font-bold'
-                      : 'text-primary/70 hover:text-primary'
+                      : 'text-primary hover:text-primary'
                   }`}
                 >
                   <Icon className="h-4 w-4" />
@@ -92,7 +92,7 @@ export function Navbar() {
                         className={`flex items-center space-x-3 font-paragraph text-base transition-colors ${
                           isActive(item.href)
                             ? 'text-primary font-bold'
-                            : 'text-primary/70 hover:text-primary'
+                            : 'text-primary hover:text-primary'
                         }`}
                       >
                         <Icon className="h-5 w-5" />

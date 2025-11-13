@@ -53,7 +53,7 @@ export default function ProfilePage() {
           <h1 className="font-heading text-4xl md:text-5xl font-black text-primary uppercase mb-4">
             My Profile
           </h1>
-          <p className="font-paragraph text-lg text-primary/70">
+          <p className="font-paragraph text-lg text-primary">
             Manage your account information and preferences
           </p>
         </div>
@@ -68,30 +68,30 @@ export default function ProfilePage() {
               <CardTitle className="font-heading text-xl font-bold text-primary">
                 {formData.firstName} {formData.lastName}
               </CardTitle>
-              <p className="font-paragraph text-sm text-primary/70">
+              <p className="font-paragraph text-sm text-primary">
                 {userType ? (userType === 'seller' ? 'Food Waste Seller' : 'Recycling Partner') : 'Platform Member'}
               </p>
             </CardHeader>
             <CardContent className="space-y-3">
               <div className="flex items-center space-x-2">
-                <Mail className="h-4 w-4 text-primary/60" />
+                <Mail className="h-4 w-4 text-primary" />
                 <span className="font-paragraph text-sm text-primary">{formData.email}</span>
               </div>
               {formData.phone && (
                 <div className="flex items-center space-x-2">
-                  <Phone className="h-4 w-4 text-primary/60" />
+                  <Phone className="h-4 w-4 text-primary" />
                   <span className="font-paragraph text-sm text-primary">{formData.phone}</span>
                 </div>
               )}
               {formData.company && (
                 <div className="flex items-center space-x-2">
-                  <Building className="h-4 w-4 text-primary/60" />
+                  <Building className="h-4 w-4 text-primary" />
                   <span className="font-paragraph text-sm text-primary">{formData.company}</span>
                 </div>
               )}
               {formData.location && (
                 <div className="flex items-center space-x-2">
-                  <MapPin className="h-4 w-4 text-primary/60" />
+                  <MapPin className="h-4 w-4 text-primary" />
                   <span className="font-paragraph text-sm text-primary">{formData.location}</span>
                 </div>
               )}

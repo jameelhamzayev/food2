@@ -58,9 +58,9 @@ export default function HomePage() {
                   <br />
                   FOOD WASTE
                 </h1>
-                <div className="font-paragraph text-lg md:text-xl text-primary/80 max-w-2xl">
-                  <span className="block mb-2">Connect • Repurpose • Impact</span>
-                  <span className="text-base">Turn inedible food leftovers into valuable resources through our sustainable marketplace ecosystem.</span>
+                <div className="font-paragraph text-lg md:text-xl text-primary max-w-2xl">
+                  <span className="block mb-2 font-semibold">Connect • Repurpose • Impact</span>
+                  <span className="text-base text-primary">Turn inedible food leftovers into valuable resources through our sustainable marketplace ecosystem.</span>
                 </div>
               </div>
 
@@ -99,7 +99,7 @@ export default function HomePage() {
                         <div className="text-3xl font-heading font-black text-primary">
                           {metric.metricValue?.toLocaleString()}{metric.unitOfMeasure}
                         </div>
-                        <div className="text-sm font-paragraph text-primary/70 mt-1">
+                        <div className="text-sm font-paragraph text-primary font-medium mt-1">
                           {metric.metricName}
                         </div>
                       </div>
@@ -125,7 +125,7 @@ export default function HomePage() {
             <h2 className="font-heading text-4xl md:text-6xl font-black text-primary uppercase mb-6">
               How It Works
             </h2>
-            <p className="font-paragraph text-lg text-primary/80 max-w-3xl mx-auto">
+            <p className="font-paragraph text-lg text-primary max-w-3xl mx-auto">
               Our streamlined process connects food producers with recyclers and sustainability services, 
               creating a circular economy for food waste management.
             </p>
@@ -151,7 +151,7 @@ export default function HomePage() {
                   <h3 className="font-heading text-xl font-bold text-primary uppercase mb-3">
                     {step.stepTitle}
                   </h3>
-                  <p className="font-paragraph text-sm text-primary/70 mb-4">
+                  <p className="font-paragraph text-sm text-primary mb-4">
                     {step.stepDescription}
                   </p>
                   {step.ctaText && step.ctaUrl && (
@@ -176,7 +176,7 @@ export default function HomePage() {
               <h2 className="font-heading text-4xl md:text-5xl font-black text-primary uppercase mb-4">
                 Live Marketplace
               </h2>
-              <p className="font-paragraph text-lg text-primary/80">
+              <p className="font-paragraph text-lg text-primary">
                 Discover available food waste listings with real-time pricing
               </p>
             </div>
@@ -208,12 +208,12 @@ export default function HomePage() {
                         ${listing.pricePerUnit}/{listing.unitOfMeasure}
                       </span>
                     </div>
-                    <p className="font-paragraph text-sm text-primary/70 mb-4">
+                    <p className="font-paragraph text-sm text-primary mb-4">
                       {listing.description}
                     </p>
-                    <div className="flex justify-between items-center text-sm font-paragraph text-primary/60">
-                      <span>{listing.quantity} {listing.unitOfMeasure}</span>
-                      <span>{listing.location}</span>
+                    <div className="flex justify-between items-center text-sm font-paragraph text-primary">
+                      <span className="font-medium">{listing.quantity} {listing.unitOfMeasure}</span>
+                      <span className="font-medium">{listing.location}</span>
                     </div>
                   </div>
                 </CardContent>
@@ -230,7 +230,7 @@ export default function HomePage() {
             <h2 className="font-heading text-4xl md:text-6xl font-black uppercase mb-6">
               Environmental Impact
             </h2>
-            <p className="font-paragraph text-lg text-textwhite/80 max-w-3xl mx-auto">
+            <p className="font-paragraph text-lg text-textwhite max-w-3xl mx-auto">
               Track the positive environmental impact of our food waste recycling community
             </p>
           </div>
@@ -248,10 +248,10 @@ export default function HomePage() {
                   <div className="text-4xl font-heading font-black text-secondary mb-2">
                     {metric.metricValue?.toLocaleString()}{metric.unitOfMeasure}
                   </div>
-                  <div className="font-paragraph text-textwhite/80 mb-2">
+                  <div className="font-paragraph text-textwhite mb-2 font-medium">
                     {metric.metricName}
                   </div>
-                  <div className="font-paragraph text-sm text-textwhite/60">
+                  <div className="font-paragraph text-sm text-textwhite">
                     {metric.metricDescription}
                   </div>
                 </div>
@@ -275,7 +275,7 @@ export default function HomePage() {
           <h2 className="font-heading text-4xl md:text-5xl font-black text-secondary-foreground uppercase mb-6">
             Ready to Make an Impact?
           </h2>
-          <p className="font-paragraph text-lg text-secondary-foreground/80 mb-8 max-w-2xl mx-auto">
+          <p className="font-paragraph text-lg text-secondary-foreground mb-8 max-w-2xl mx-auto">
             Join our community of food producers, recyclers, and sustainability partners working together 
             to create a more sustainable future.
           </p>

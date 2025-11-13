@@ -135,7 +135,7 @@ export default function ImpactPage() {
                     <div className="text-3xl font-heading font-black text-primary mb-2">
                       {metric.metricValue?.toLocaleString()}{metric.unitOfMeasure}
                     </div>
-                    <p className="font-paragraph text-sm text-primary/70">
+                    <p className="font-paragraph text-sm text-primary">
                       {metric.metricDescription}
                     </p>
                   </div>

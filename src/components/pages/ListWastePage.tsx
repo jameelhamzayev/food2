@@ -104,7 +104,7 @@ export default function ListWastePage() {
             <h1 className="font-heading text-4xl md:text-5xl font-black text-primary uppercase mb-4">
               List Your Food Waste
             </h1>
-            <p className="font-paragraph text-lg text-primary/70">
+            <p className="font-paragraph text-lg text-primary">
               Create a listing for your food waste and connect with recyclers and businesses
             </p>
           </div>
@@ -292,7 +292,7 @@ export default function ListWastePage() {
             <h1 className="font-heading text-4xl md:text-5xl font-black text-primary uppercase mb-4">
               Register Your Recycling Company
             </h1>
-            <p className="font-paragraph text-lg text-primary/70">
+            <p className="font-paragraph text-lg text-primary">
               Join our network of recycling partners and offer your services to food waste producers
             </p>
           </div>
@@ -432,7 +432,7 @@ export default function ListWastePage() {
           <h1 className="font-heading text-5xl md:text-7xl font-black text-primary uppercase mb-6">
             Join Our Platform
           </h1>
-          <p className="font-paragraph text-lg text-primary/70 max-w-3xl mx-auto">
+          <p className="font-paragraph text-lg text-primary max-w-3xl mx-auto">
             Choose how you'd like to participate in our food waste marketplace ecosystem
           </p>
         </div>
@@ -449,7 +449,7 @@ export default function ListWastePage() {
               </CardTitle>
             </CardHeader>
             <CardContent className="text-center space-y-4">
-              <p className="font-paragraph text-primary/70">
+              <p className="font-paragraph text-primary">
                 I have food waste to sell and want to connect with recyclers and other businesses
               </p>
               
@@ -486,7 +486,7 @@ export default function ListWastePage() {
               </CardTitle>
             </CardHeader>
             <CardContent className="text-center space-y-4">
-              <p className="font-paragraph text-primary/70">
+              <p className="font-paragraph text-primary">
                 I run a recycling company and want to offer services to food waste producers
               </p>
               
@@ -515,7 +515,7 @@ export default function ListWastePage() {
 
         {/* Additional Info */}
         <div className="text-center mt-12">
-          <p className="font-paragraph text-primary/60 mb-4">
+          <p className="font-paragraph text-primary mb-4">
             Not sure which option is right for you?
           </p>
           <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-none">

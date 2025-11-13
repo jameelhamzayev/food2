@@ -114,7 +114,7 @@ export default function ServicesPage() {
 
             <div className="flex gap-4 items-center">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-primary/60" />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-primary" />
                 <Input
                   placeholder="Search services..."
                   value={searchTerm}
@@ -150,7 +150,7 @@ export default function ServicesPage() {
               <h2 className="font-heading text-2xl font-bold text-primary mb-2">
                 {filteredServices.length} Services Available
               </h2>
-              <p className="font-paragraph text-primary/70">
+              <p className="font-paragraph text-primary">
                 Professional sustainability services to help transform your food waste
               </p>
             </div>
@@ -159,7 +159,7 @@ export default function ServicesPage() {
               <div className="text-center py-16">
                 <div className="text-6xl mb-4">🔍</div>
                 <h3 className="font-heading text-2xl font-bold text-primary mb-2">No services found</h3>
-                <p className="font-paragraph text-primary/70">
+                <p className="font-paragraph text-primary">
                   Try adjusting your search criteria or check back later for new services.
                 </p>
               </div>
@@ -189,13 +189,13 @@ export default function ServicesPage() {
                           )}
                         </div>
                         
-                        <p className="font-paragraph text-sm text-primary/70">
+                        <p className="font-paragraph text-sm text-primary">
                           {service.shortDescription}
                         </p>
                         
                         {service.partnerName && (
                           <div className="flex items-center gap-2">
-                            <span className="font-paragraph text-xs text-primary/60">Partner:</span>
+                            <span className="font-paragraph text-xs text-primary">Partner:</span>
                             <span className="font-paragraph text-sm font-medium text-primary">
                               {service.partnerName}
                             </span>
@@ -234,7 +234,7 @@ export default function ServicesPage() {
               <h2 className="font-heading text-2xl font-bold text-primary mb-2">
                 {filteredRecyclers.length} Recycling Partners
               </h2>
-              <p className="font-paragraph text-primary/70">
+              <p className="font-paragraph text-primary">
                 Certified recycling partners ready to process your food waste
               </p>
             </div>
@@ -243,7 +243,7 @@ export default function ServicesPage() {
               <div className="text-center py-16">
                 <div className="text-6xl mb-4">🔍</div>
                 <h3 className="font-heading text-2xl font-bold text-primary mb-2">No recyclers found</h3>
-                <p className="font-paragraph text-primary/70">
+                <p className="font-paragraph text-primary">
                   Try adjusting your search criteria or check back later for new partners.
                 </p>
               </div>
@@ -266,13 +266,13 @@ export default function ServicesPage() {
                           {recycler.recyclerName}
                         </h3>
                         
-                        <p className="font-paragraph text-sm text-primary/70">
+                        <p className="font-paragraph text-sm text-primary">
                           {recycler.description}
                         </p>
                         
                         {recycler.location && (
                           <div className="flex items-center gap-2">
-                            <MapPin className="h-4 w-4 text-primary/60" />
+                            <MapPin className="h-4 w-4 text-primary" />
                             <span className="font-paragraph text-sm text-primary">
                               {recycler.location}
                             </span>
@@ -281,7 +281,7 @@ export default function ServicesPage() {
                         
                         {recycler.wasteTypesAccepted && (
                           <div>
-                            <span className="font-paragraph text-xs text-primary/60 block mb-1">
+                            <span className="font-paragraph text-xs text-primary block mb-1">
                               Accepts:
                             </span>
                             <span className="font-paragraph text-sm text-primary">
@@ -292,7 +292,7 @@ export default function ServicesPage() {
 
                         {recycler.productsInReturn && (
                           <div>
-                            <span className="font-paragraph text-xs text-primary/60 block mb-1">
+                            <span className="font-paragraph text-xs text-primary block mb-1">
                               Products in Return:
                             </span>
                             <span className="font-paragraph text-sm text-primary">
