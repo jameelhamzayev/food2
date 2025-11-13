@@ -8,6 +8,7 @@ import ErrorPage from '@/integrations/errorHandlers/ErrorPage';
 // Pages
 import HomePage from '@/components/pages/HomePage';
 import MarketplacePage from '@/components/pages/MarketplacePage';
+import ListingDetailsPage from '@/components/pages/ListingDetailsPage';
 import ServicesPage from '@/components/pages/ServicesPage';
 import ImpactPage from '@/components/pages/ImpactPage';
 import ListWastePage from '@/components/pages/ListWastePage';
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "marketplace",
         element: <MarketplacePage />,
+      },
+      {
+        path: "marketplace/:id",
+        element: <ListingDetailsPage />,
       },
       {
         path: "services",

@@ -20,7 +20,31 @@ export default function MarketplacePage() {
   useEffect(() => {
     const fetchListings = async () => {
       try {
+        console.log('Fetching marketplace listings...');
         const { items } = await BaseCrudService.getAll<MarketplaceListings>('marketplacelistings');
+        console.log('Fetched listings:', items);
+        console.log('Number of listings:', items.length);
+        
+        // Log each listing's ID for debugging
+        items.forEach((listing, index) => {
+          console.log(`Listing ${index + 1}:`, {
+            id: listing._id,
+            title: listing.listingTitle,
+            wasteType: listing.wasteType,
+            hasAllFields: {
+              id: !!listing._id,
+              title: !!listing.listingTitle,
+              description: !!listing.description,
+              wasteType: !!listing.wasteType,
+              quantity: listing.quantity !== undefined,
+              unitOfMeasure: !!listing.unitOfMeasure,
+              pricePerUnit: listing.pricePerUnit !== undefined,
+              location: !!listing.location,
+              image: !!listing.listingImage
+            }
+          });
+        });
+        
         setListings(items);
         setFilteredListings(items);
       } catch (error) {
@@ -171,30 +195,32 @@ export default function MarketplacePage() {
                     )}
                     <div className="p-6">
                       <div className="flex justify-between items-start mb-3">
-                        <h3 className="font-heading text-xl font-bold text-primary">
-                          {listing.listingTitle}
+                        <h3 className="font-heading text-xl font-bold text-primary line-clamp-2 flex-1 mr-2">
+                          {listing.listingTitle || 'Untitled Listing'}
                         </h3>
-                        <span className="bg-secondary text-secondary-foreground px-3 py-1 text-sm font-paragraph font-bold">
-                          ${listing.pricePerUnit}/{listing.unitOfMeasure}
+                        <span className="bg-secondary text-secondary-foreground px-3 py-1 text-sm font-paragraph font-bold whitespace-nowrap">
+                          ${listing.pricePerUnit || 0}/{listing.unitOfMeasure || 'unit'}
                         </span>
                       </div>
                       
-                      <p className="font-paragraph text-sm text-primary mb-4 line-clamp-3">
-                        {listing.description}
+                      <p className="font-paragraph text-sm text-primary mb-4 line-clamp-3 min-h-[3.75rem]">
+                        {listing.description || 'No description available for this listing.'}
                       </p>
                       
                       <div className="space-y-2 mb-4">
                         <div className="flex justify-between items-center text-sm font-paragraph">
                           <span className="text-primary">Type:</span>
-                          <span className="text-primary font-medium">{listing.wasteType}</span>
+                          <span className="text-primary font-medium">{listing.wasteType || 'Not specified'}</span>
                         </div>
                         <div className="flex justify-between items-center text-sm font-paragraph">
                           <span className="text-primary">Quantity:</span>
-                          <span className="text-primary font-medium">{listing.quantity} {listing.unitOfMeasure}</span>
+                          <span className="text-primary font-medium">
+                            {listing.quantity || 0} {listing.unitOfMeasure || 'units'}
+                          </span>
                         </div>
                         <div className="flex justify-between items-center text-sm font-paragraph">
                           <span className="text-primary">Location:</span>
-                          <span className="text-primary font-medium">{listing.location}</span>
+                          <span className="text-primary font-medium">{listing.location || 'Location not specified'}</span>
                         </div>
                         {listing.availableUntil && (
                           <div className="flex justify-between items-center text-sm font-paragraph">
@@ -204,11 +230,17 @@ export default function MarketplacePage() {
                             </span>
                           </div>
                         )}
+                        <div className="flex justify-between items-center text-sm font-paragraph border-t pt-2">
+                          <span className="text-primary font-medium">Total Value:</span>
+                          <span className="text-secondary font-bold">
+                            ${((listing.pricePerUnit || 0) * (listing.quantity || 0)).toFixed(2)}
+                          </span>
+                        </div>
                       </div>
                       
                       <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-none">
                         <Link to={`/marketplace/${listing._id}`}>
-                          View Details
+                          View Full Details
                         </Link>
                       </Button>
                     </div>
