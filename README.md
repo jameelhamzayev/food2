@@ -6,7 +6,6 @@ A modern, full-featured Wix Astro template built with React, TypeScript, and Tai
 - **React Integration** - Full React support with JSX components
 - **TypeScript** - Type-safe development experience
 - **Tailwind CSS** - Utility-first CSS framework with custom components
-- **Wix Integration** - Seamless integration with Wix services and APIs
 - **Modern UI Components** - Radix UI components with custom styling
 - **Authentication** - Built-in member authentication and protected routes
 - **CMS Integration** - Content management system integration
