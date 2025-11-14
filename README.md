@@ -1,5 +1,3 @@
-# Wixstro - Wix Astro Template
-
 A modern, full-featured Wix Astro template built with React, TypeScript, and Tailwind CSS. This template provides a solid foundation for building dynamic, interactive websites with Wix's powerful ecosystem.
 
 ## 🚀 Features
@@ -37,7 +35,7 @@ A modern, full-featured Wix Astro template built with React, TypeScript, and Tai
 
 - Node.js (version 18 or higher)
 - npm or yarn package manager
-- Wix account and site
+
 
 ### Installation
 
@@ -134,14 +132,3 @@ npm run build
 4. Run tests and linting
 5. Submit a pull request
 
-## 🆘 Support
-
-For support and questions:
-
-- Check the [Wix Developer Documentation](https://dev.wix.com/)
-- Review the [Astro Documentation](https://docs.astro.build/)
-
-
----
-
-Built with ❤️ using Wix Vibe, Astro, and modern web technologies.
